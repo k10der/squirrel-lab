@@ -1,4 +1,7 @@
 FROM alpine:latest
 
-RUN apk add bash
+RUN adduser -D user
+RUN apk add bash && cd /home/user
+USER user
 ADD dummy.txt .
+RUN cat dummy.txt
